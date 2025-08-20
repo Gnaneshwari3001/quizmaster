@@ -172,7 +172,7 @@ export default function Index() {
             Ready to Test Your Skills?
           </h2>
           <p className="text-muted-foreground mb-8">
-            Join thousands of tech professionals and challenge yourself with our comprehensive quiz.
+            Join thousands of creative thinkers and challenge yourself with our mind-bending quiz.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/signup">
