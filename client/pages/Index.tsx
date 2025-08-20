@@ -11,18 +11,18 @@ export default function Index() {
   const features = [
     {
       icon: Brain,
-      title: "50 Challenging Questions",
-      description: "Mix of technology, logic puzzles, and brainstorming challenges",
+      title: "50 Mind-Bending Questions",
+      description: "Creative brainstorming challenges and logical reasoning puzzles",
     },
     {
       icon: Clock,
       title: "30-Minute Timer",
-      description: "Test your knowledge under pressure with our timed quiz format",
+      description: "Test your problem-solving skills under pressure with timed challenges",
     },
     {
       icon: Trophy,
       title: "Leaderboard",
-      description: "Compete with others and see where you rank globally",
+      description: "Compete with other creative thinkers and see where you rank",
     },
     {
       icon: Users,
