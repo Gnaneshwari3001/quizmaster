@@ -120,7 +120,7 @@ export default function Index() {
             Why Choose Our Quiz Platform?
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Built for developers, tech enthusiasts, and problem solvers who love a good challenge.
+            Built for creative thinkers, problem solvers, and anyone who loves mental challenges.
           </p>
         </div>
         
