@@ -429,5 +429,222 @@ export const quizQuestionsData = [
     correctAnswer: "98 coins for himself, 0 for second pirate, 1 for third pirate, 0 for fourth pirate, 1 for fifth pirate",
     category: "brainstorming",
     difficulty: "hard"
+  },
+  {
+    question: "What comes next in this pattern: Red, Green, Blue, Red, Green, ?",
+    type: "multiple-choice",
+    options: ["Blue", "Red", "Yellow", "Purple"],
+    correctAnswer: "Blue",
+    category: "logic",
+    difficulty: "easy"
+  },
+  {
+    question: "If you could solve one world problem, what would it be and why?",
+    type: "text",
+    correctAnswer: "Any thoughtful answer about global issues like poverty, climate change, education, etc.",
+    category: "brainstorming",
+    difficulty: "medium"
+  },
+  {
+    question: "A snail is at the bottom of a 20-foot well. Each day it climbs up 3 feet, but each night it slides back down 2 feet. How many days will it take for the snail to reach the top?",
+    type: "multiple-choice",
+    options: ["18 days", "19 days", "20 days", "21 days"],
+    correctAnswer: "18 days",
+    category: "logic",
+    difficulty: "medium"
+  },
+  {
+    question: "Name three creative uses for a paperclip that aren't holding papers together.",
+    type: "text",
+    correctAnswer: "Reset device buttons, zipper pull replacement, bookmark, jewelry, lock pick, phone stand",
+    category: "brainstorming",
+    difficulty: "easy"
+  },
+  {
+    question: "Which number should replace the question mark: 2, 6, 12, 20, 30, ?",
+    type: "multiple-choice",
+    options: ["40", "42", "44", "46"],
+    correctAnswer: "42",
+    category: "logic",
+    difficulty: "medium"
+  },
+  {
+    question: "You have 9 balls that look identical. 8 weigh the same, but 1 is heavier. Using a balance scale only twice, how can you find the heavy ball?",
+    type: "text",
+    correctAnswer: "Divide into 3 groups of 3. Weigh two groups. If balanced, heavy ball is in third group. If not, it's in heavier group. Then weigh 2 balls from the heavy group.",
+    category: "logic",
+    difficulty: "hard"
+  },
+  {
+    question: "What's the most creative way to use a smartphone besides calling, texting, or browsing the internet?",
+    type: "text",
+    correctAnswer: "Any creative answer like microscope with lens, plant growth time-lapse, spirit level, magnifying glass, etc.",
+    category: "brainstorming",
+    difficulty: "medium"
+  },
+  {
+    question: "If today is Wednesday, what day will it be 100 days from now?",
+    type: "multiple-choice",
+    options: ["Monday", "Tuesday", "Wednesday", "Thursday"],
+    correctAnswer: "Thursday",
+    category: "logic",
+    difficulty: "medium"
+  },
+  {
+    question: "How would you improve the design of a common household item like a toothbrush?",
+    type: "text",
+    correctAnswer: "Any innovative improvement like replaceable heads, built-in timer, UV sanitizer, ergonomic grip, etc.",
+    category: "brainstorming",
+    difficulty: "medium"
+  },
+  {
+    question: "A father is 30 years older than his son. In 12 years, he will be twice as old as his son. How old is the father now?",
+    type: "multiple-choice",
+    options: ["42 years", "48 years", "54 years", "60 years"],
+    correctAnswer: "42 years",
+    category: "logic",
+    difficulty: "medium"
+  },
+  {
+    question: "List three things that are always in front of you but can't be touched.",
+    type: "text",
+    correctAnswer: "Future, horizon, your reflection, shadow, air, etc.",
+    category: "brainstorming",
+    difficulty: "medium"
+  },
+  {
+    question: "What comes next: 1, 4, 9, 16, 25, ?",
+    type: "multiple-choice",
+    options: ["30", "35", "36", "49"],
+    correctAnswer: "36",
+    category: "logic",
+    difficulty: "easy"
+  },
+  {
+    question: "If you could add one subject to school curriculum worldwide, what would it be?",
+    type: "text",
+    correctAnswer: "Any thoughtful answer like emotional intelligence, financial literacy, critical thinking, life skills, etc.",
+    category: "brainstorming",
+    difficulty: "medium"
+  },
+  {
+    question: "In a race, you overtake the person in 2nd place. What position are you in now?",
+    type: "multiple-choice",
+    options: ["1st place", "2nd place", "3rd place", "It depends"],
+    correctAnswer: "2nd place",
+    category: "logic",
+    difficulty: "easy"
+  },
+  {
+    question: "Think of an innovative solution for reducing food waste in restaurants.",
+    type: "text",
+    correctAnswer: "Any creative solution like smaller portions, donation programs, compost systems, apps for leftovers, etc.",
+    category: "brainstorming",
+    difficulty: "medium"
+  },
+  {
+    question: "Which shape comes next in this sequence: Circle, Square, Triangle, Circle, Square, ?",
+    type: "multiple-choice",
+    options: ["Triangle", "Circle", "Pentagon", "Rectangle"],
+    correctAnswer: "Triangle",
+    category: "logic",
+    difficulty: "easy"
+  },
+  {
+    question: "What's a creative way to make waiting in line more enjoyable for everyone?",
+    type: "text",
+    correctAnswer: "Any creative idea like games, entertainment, information displays, social activities, music, etc.",
+    category: "brainstorming",
+    difficulty: "easy"
+  },
+  {
+    question: "If you arrange these numbers in ascending order, which comes third: 0.7, 3/4, 0.65, 4/5?",
+    type: "multiple-choice",
+    options: ["0.7", "3/4", "0.65", "4/5"],
+    correctAnswer: "3/4",
+    category: "logic",
+    difficulty: "medium"
+  },
+  {
+    question: "Design a new public transportation system for your ideal city.",
+    type: "text",
+    correctAnswer: "Any innovative transport idea like underground pods, aerial routes, renewable energy, smart scheduling, etc.",
+    category: "brainstorming",
+    difficulty: "hard"
+  },
+  {
+    question: "Mary's mother has four children: North, South, East, and ___?",
+    type: "multiple-choice",
+    options: ["West", "Mary", "Middle", "Center"],
+    correctAnswer: "Mary",
+    category: "logic",
+    difficulty: "easy"
+  },
+  {
+    question: "What's an innovative way to help elderly people feel more connected to their community?",
+    type: "text",
+    correctAnswer: "Any thoughtful solution like intergenerational programs, tech training, community gardens, mentorship, etc.",
+    category: "brainstorming",
+    difficulty: "medium"
+  },
+  {
+    question: "If it takes 6 people 6 minutes to eat 6 apples, how long does it take 3 people to eat 3 apples?",
+    type: "multiple-choice",
+    options: ["3 minutes", "6 minutes", "9 minutes", "12 minutes"],
+    correctAnswer: "6 minutes",
+    category: "logic",
+    difficulty: "medium"
+  },
+  {
+    question: "Create a solution to make homework more engaging for students.",
+    type: "text",
+    correctAnswer: "Any creative approach like gamification, real-world projects, collaborative work, choice-based learning, etc.",
+    category: "brainstorming",
+    difficulty: "medium"
+  },
+  {
+    question: "What number comes next: 2, 3, 5, 7, 11, 13, ?",
+    type: "multiple-choice",
+    options: ["15", "17", "19", "21"],
+    correctAnswer: "17",
+    category: "logic",
+    difficulty: "medium"
+  },
+  {
+    question: "How would you redesign a park to make it more environmentally friendly and community-focused?",
+    type: "text",
+    correctAnswer: "Any eco-friendly ideas like native plants, rain gardens, community plots, renewable energy, wildlife habitats, etc.",
+    category: "brainstorming",
+    difficulty: "medium"
+  },
+  {
+    question: "A train leaves New York at 3 PM traveling at 60 mph. Another train leaves Chicago at 4 PM traveling at 80 mph toward New York. If the cities are 800 miles apart, when will they meet?",
+    type: "multiple-choice",
+    options: ["8:00 PM", "8:30 PM", "9:00 PM", "9:30 PM"],
+    correctAnswer: "9:00 PM",
+    category: "logic",
+    difficulty: "hard"
+  },
+  {
+    question: "What's an innovative way to encourage people to recycle more?",
+    type: "text",
+    correctAnswer: "Any creative incentive like rewards programs, competitions, art projects, community challenges, education, etc.",
+    category: "brainstorming",
+    difficulty: "medium"
+  },
+  {
+    question: "If you write down all numbers from 1 to 100, how many times will you write the digit 7?",
+    type: "multiple-choice",
+    options: ["10", "19", "20", "21"],
+    correctAnswer: "20",
+    category: "logic",
+    difficulty: "hard"
+  },
+  {
+    question: "Design a creative workspace that would boost productivity and happiness.",
+    type: "text",
+    correctAnswer: "Any innovative workspace idea like natural lighting, flexible spaces, plants, collaboration areas, relaxation zones, etc.",
+    category: "brainstorming",
+    difficulty: "medium"
   }
 ];
