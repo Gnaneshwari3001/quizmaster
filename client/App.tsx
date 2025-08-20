@@ -14,6 +14,7 @@ import Signup from "./pages/Signup";
 import Leaderboard from "./pages/Leaderboard";
 import QuizStart from "./pages/QuizStart";
 import QuizGuest from "./pages/QuizGuest";
+import QuizResults from "./pages/QuizResults";
 
 const queryClient = new QueryClient();
 
