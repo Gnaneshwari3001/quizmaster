@@ -32,10 +32,10 @@ export default function Index() {
   ];
 
   const questionTypes = [
-    "Multiple Choice",
-    "Multiple Select", 
-    "True/False",
-    "Brainstorming Puzzles"
+    "Logic Puzzles",
+    "Creative Challenges",
+    "Math Reasoning",
+    "Brainstorming Problems"
   ];
 
   return (
