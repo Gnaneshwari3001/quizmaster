@@ -73,13 +73,13 @@ export default function Index() {
             New Quiz Platform
           </Badge>
           <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
-            Tech & <span className="text-primary">Brainstorming</span>
+            <span className="text-primary">Brainstorming</span> & Logic
             <br />
-            Quiz Challenge
+            Challenge Quiz
           </h1>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Test your technical knowledge and problem-solving skills with our comprehensive quiz. 
-            50 carefully crafted questions covering technology, logic, and creative thinking.
+            Test your creative thinking and logical reasoning skills with our comprehensive quiz.
+            50 carefully crafted questions covering brainstorming challenges and logic puzzles.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
