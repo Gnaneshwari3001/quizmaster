@@ -213,7 +213,7 @@ export default function Index() {
             </div>
           </div>
           <div className="mt-4 pt-4 border-t border-border/30 text-center text-sm text-muted-foreground">
-            © 2024 QuizMaster. Built for tech enthusiasts and problem solvers.
+            © 2024 QuizMaster. Built for creative thinkers and problem solvers.
           </div>
         </div>
       </footer>
