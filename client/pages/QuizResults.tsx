@@ -5,16 +5,18 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { Separator } from "@/components/ui/separator";
-import { 
-  Brain, 
-  ArrowLeft, 
-  Trophy, 
-  Clock, 
-  CheckCircle, 
-  XCircle, 
+import {
+  Brain,
+  ArrowLeft,
+  Trophy,
+  Clock,
+  CheckCircle,
+  XCircle,
   Target,
   RotateCcw,
-  Share2
+  Share2,
+  Eye,
+  EyeOff
 } from "lucide-react";
 import { quizService } from "@/lib/quizService";
 
