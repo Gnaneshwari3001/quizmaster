@@ -380,106 +380,109 @@ export default function QuizGuest() {
               </CardHeader>
               
               <CardContent>
-                {/* Multiple Choice */}
-                {currentQuestion.type === "multiple-choice" && currentQuestion.options && (
-                  <RadioGroup 
-                    value={currentAnswer as string} 
-                    onValueChange={setCurrentAnswer}
-                    className="space-y-3"
-                  >
-                    {currentQuestion.options.map((option, index) => (
-                      <div key={index} className="flex items-center space-x-2 p-3 rounded-lg border hover:bg-accent/50 transition-colors">
-                        <RadioGroupItem value={option} id={`option-${index}`} />
-                        <Label htmlFor={`option-${index}`} className="flex-1 cursor-pointer">
-                          {option}
-                        </Label>
-                      </div>
-                    ))}
-                  </RadioGroup>
-                )}
-
-                {/* True/False */}
-                {currentQuestion.type === "true-false" && currentQuestion.options && (
-                  <RadioGroup 
-                    value={currentAnswer as string} 
-                    onValueChange={setCurrentAnswer}
-                    className="space-y-3"
-                  >
-                    {currentQuestion.options.map((option, index) => (
-                      <div key={index} className="flex items-center space-x-2 p-3 rounded-lg border hover:bg-accent/50 transition-colors">
-                        <RadioGroupItem value={option} id={`tf-${index}`} />
-                        <Label htmlFor={`tf-${index}`} className="flex-1 cursor-pointer">
-                          {option}
-                        </Label>
-                      </div>
-                    ))}
-                  </RadioGroup>
-                )}
-
-                {/* Multiple Select */}
-                {currentQuestion.type === "multiple-select" && currentQuestion.options && (
-                  <div className="space-y-3">
-                    {currentQuestion.options.map((option, index) => (
-                      <div key={index} className="flex items-center space-x-2 p-3 rounded-lg border hover:bg-accent/50 transition-colors">
-                        <Checkbox
-                          id={`multi-${index}`}
-                          checked={(currentAnswer as string[]).includes(option)}
-                          onCheckedChange={(checked) => {
-                            const currentAnswers = currentAnswer as string[];
-                            if (checked) {
-                              setCurrentAnswer([...currentAnswers, option]);
-                            } else {
-                              setCurrentAnswer(currentAnswers.filter(a => a !== option));
-                            }
-                          }}
-                        />
-                        <Label htmlFor={`multi-${index}`} className="flex-1 cursor-pointer">
-                          {option}
-                        </Label>
-                      </div>
-                    ))}
-                  </div>
-                )}
-
-                {/* Text Input */}
-                {currentQuestion.type === "text" && (
-                  <Textarea
-                    placeholder="Type your answer here..."
+                {/* Multiple Choice Questions Only */}
+                {currentQuestion.options && (
+                  <RadioGroup
                     value={currentAnswer as string}
-                    onChange={(e) => setCurrentAnswer(e.target.value)}
-                    className="min-h-[100px]"
-                  />
+                    onValueChange={setCurrentAnswer}
+                    className="space-y-3"
+                    disabled={quizState.submittedAnswers[currentQuestion.id]}
+                  >
+                    {currentQuestion.options.map((option, index) => (
+                      <div key={index} className={`flex items-center space-x-2 p-3 rounded-lg border transition-colors ${
+                        quizState.submittedAnswers[currentQuestion.id]
+                          ? 'opacity-75 cursor-not-allowed'
+                          : 'hover:bg-accent/50 cursor-pointer'
+                      }`}>
+                        <RadioGroupItem
+                          value={option}
+                          id={`option-${index}`}
+                          disabled={quizState.submittedAnswers[currentQuestion.id]}
+                        />
+                        <Label
+                          htmlFor={`option-${index}`}
+                          className={`flex-1 ${
+                            quizState.submittedAnswers[currentQuestion.id]
+                              ? 'cursor-not-allowed'
+                              : 'cursor-pointer'
+                          }`}
+                        >
+                          {option}
+                        </Label>
+                      </div>
+                    ))}
+                  </RadioGroup>
                 )}
 
-                {/* Navigation Buttons */}
-                <div className="flex justify-between items-center mt-8 pt-6 border-t">
-                  <Button
-                    variant="outline"
-                    onClick={() => goToQuestion('prev')}
-                    disabled={quizState.currentQuestionIndex === 0}
-                  >
-                    <ChevronLeft className="w-4 h-4 mr-2" />
-                    Previous
-                  </Button>
+                {/* Action Buttons */}
+                <div className="flex flex-col space-y-4 mt-8 pt-6 border-t">
+                  <div className="flex justify-between items-center">
+                    <div className="flex items-center space-x-4">
+                      <Button
+                        variant="outline"
+                        onClick={() => goToQuestion('prev')}
+                        disabled={quizState.currentQuestionIndex === 0}
+                      >
+                        <ChevronLeft className="w-4 h-4 mr-2" />
+                        Previous
+                      </Button>
 
-                  <div className="text-sm text-muted-foreground">
-                    {Object.keys(quizState.answers).length} of {quizState.questions.length} answered
+                      <Button
+                        variant="outline"
+                        onClick={() => goToQuestion('next')}
+                        disabled={quizState.currentQuestionIndex === quizState.questions.length - 1}
+                      >
+                        Next
+                        <ChevronRight className="w-4 h-4 ml-2" />
+                      </Button>
+                    </div>
+
+                    <div className="text-sm text-muted-foreground">
+                      Question {quizState.currentQuestionIndex + 1} of {quizState.questions.length}
+                    </div>
+
+                    {isLastQuestion && Object.keys(quizState.submittedAnswers).length === quizState.questions.length && (
+                      <Button
+                        onClick={() => submitQuiz()}
+                        disabled={isSubmitting}
+                        className="bg-quiz-correct hover:bg-quiz-correct/90"
+                      >
+                        <Flag className="w-4 h-4 mr-2" />
+                        {isSubmitting ? "Submitting..." : "Finish Quiz"}
+                      </Button>
+                    )}
                   </div>
 
-                  {isLastQuestion ? (
+                  <div className="flex justify-center space-x-4">
                     <Button
-                      onClick={() => submitQuiz()}
-                      disabled={isSubmitting}
-                      className="bg-quiz-correct hover:bg-quiz-correct/90"
+                      onClick={submitAnswer}
+                      disabled={!currentAnswer || quizState.submittedAnswers[currentQuestion?.id || '']}
+                      className="bg-primary hover:bg-primary/90"
                     >
-                      <Flag className="w-4 h-4 mr-2" />
-                      {isSubmitting ? "Submitting..." : "Finish Quiz"}
+                      {quizState.submittedAnswers[currentQuestion?.id || ''] ? "Answer Submitted" : "Submit Answer"}
                     </Button>
-                  ) : (
-                    <Button onClick={() => goToQuestion('next')}>
-                      Next
-                      <ChevronRight className="w-4 h-4 ml-2" />
-                    </Button>
+
+                    {quizState.submittedAnswers[currentQuestion?.id || ''] && (
+                      <Button
+                        variant="outline"
+                        onClick={toggleShowAnswer}
+                      >
+                        {quizState.showAnswers[currentQuestion?.id || ''] ? "Hide Answer" : "Show Answer"}
+                      </Button>
+                    )}
+                  </div>
+
+                  {/* Show correct answer if toggled */}
+                  {quizState.showAnswers[currentQuestion?.id || ''] && currentQuestion && (
+                    <div className="bg-quiz-correct/10 border border-quiz-correct/20 rounded-lg p-4 text-center">
+                      <div className="text-sm text-muted-foreground mb-1">Correct Answer:</div>
+                      <div className="font-medium text-quiz-correct">
+                        {currentQuestion.correctAnswer}
+                      </div>
+                      <div className="text-xs text-muted-foreground mt-2">
+                        {currentAnswer === currentQuestion.correctAnswer ? "✅ Your answer is correct!" : "❌ Your answer is incorrect"}
+                      </div>
+                    </div>
                   )}
                 </div>
               </CardContent>
