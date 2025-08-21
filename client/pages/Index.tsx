@@ -11,7 +11,7 @@ export default function Index() {
   const features = [
     {
       icon: Brain,
-      title: "50 Mind-Bending Questions",
+      title: "25 Mind-Bending Questions",
       description: "Creative brainstorming challenges and logical reasoning puzzles",
     },
     {
