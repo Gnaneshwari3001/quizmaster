@@ -1,4 +1,4 @@
-export const quizQuestionsData = [
+const allQuestions = [
   {
     question: "A clock shows 3:15. What is the angle between the hour and minute hands?",
     type: "multiple-choice",
