@@ -226,6 +226,24 @@ export default function QuizResults() {
                     Retake Quiz
                   </Button>
                 </Link>
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="w-full sm:w-auto"
+                  onClick={() => setShowAnswers(!showAnswers)}
+                >
+                  {showAnswers ? (
+                    <>
+                      <EyeOff className="w-4 h-4 mr-2" />
+                      Hide Answers
+                    </>
+                  ) : (
+                    <>
+                      <Eye className="w-4 h-4 mr-2" />
+                      Show Answers
+                    </>
+                  )}
+                </Button>
                 <Link to="/leaderboard">
                   <Button variant="outline" size="lg" className="w-full sm:w-auto">
                     <Target className="w-4 h-4 mr-2" />
@@ -233,7 +251,7 @@ export default function QuizResults() {
                   </Button>
                 </Link>
                 <Button variant="outline" size="lg" onClick={() => {
-                  const text = `I just scored ${score}% on the QuizMaster Tech & Brainstorming Quiz! ${correctCount}/${questions.length} correct answers.`;
+                  const text = `I just scored ${score}% on the QuizMaster Brainstorming & Logic Quiz! ${correctCount}/${questions.length} correct answers.`;
                   navigator.share ? navigator.share({ text }) : navigator.clipboard.writeText(text);
                 }}>
                   <Share2 className="w-4 h-4 mr-2" />
