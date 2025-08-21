@@ -372,35 +372,75 @@ export default function QuizStart() {
                   />
                 )}
 
-                {/* Navigation Buttons */}
-                <div className="flex justify-between items-center mt-8 pt-6 border-t">
-                  <Button
-                    variant="outline"
-                    onClick={() => goToQuestion('prev')}
-                    disabled={quizState.currentQuestionIndex === 0}
-                  >
-                    <ChevronLeft className="w-4 h-4 mr-2" />
-                    Previous
-                  </Button>
+                {/* Action Buttons */}
+                <div className="flex flex-col space-y-4 mt-8 pt-6 border-t">
+                  <div className="flex justify-between items-center">
+                    <div className="flex items-center space-x-4">
+                      <Button
+                        variant="outline"
+                        onClick={() => goToQuestion('prev')}
+                        disabled={quizState.currentQuestionIndex === 0}
+                      >
+                        <ChevronLeft className="w-4 h-4 mr-2" />
+                        Previous
+                      </Button>
 
-                  <div className="text-sm text-muted-foreground">
-                    {Object.keys(quizState.answers).length} of {quizState.questions.length} answered
+                      <Button
+                        variant="outline"
+                        onClick={() => goToQuestion('next')}
+                        disabled={quizState.currentQuestionIndex === quizState.questions.length - 1}
+                      >
+                        Next
+                        <ChevronRight className="w-4 h-4 ml-2" />
+                      </Button>
+                    </div>
+
+                    <div className="text-sm text-muted-foreground">
+                      Question {quizState.currentQuestionIndex + 1} of {quizState.questions.length}
+                    </div>
+
+                    {isLastQuestion && Object.keys(quizState.submittedAnswers).length === quizState.questions.length && (
+                      <Button
+                        onClick={() => submitQuiz()}
+                        disabled={isSubmitting}
+                        className="bg-quiz-correct hover:bg-quiz-correct/90"
+                      >
+                        <Flag className="w-4 h-4 mr-2" />
+                        {isSubmitting ? "Submitting..." : "Finish Quiz"}
+                      </Button>
+                    )}
                   </div>
 
-                  {isLastQuestion ? (
+                  <div className="flex justify-center space-x-4">
                     <Button
-                      onClick={() => submitQuiz()}
-                      disabled={isSubmitting}
-                      className="bg-quiz-correct hover:bg-quiz-correct/90"
+                      onClick={submitAnswer}
+                      disabled={!currentAnswer || quizState.submittedAnswers[currentQuestion?.id || '']}
+                      className="bg-primary hover:bg-primary/90"
                     >
-                      <Flag className="w-4 h-4 mr-2" />
-                      {isSubmitting ? "Submitting..." : "Finish Quiz"}
+                      {quizState.submittedAnswers[currentQuestion?.id || ''] ? "Answer Submitted" : "Submit Answer"}
                     </Button>
-                  ) : (
-                    <Button onClick={() => goToQuestion('next')}>
-                      Next
-                      <ChevronRight className="w-4 h-4 ml-2" />
-                    </Button>
+
+                    {quizState.submittedAnswers[currentQuestion?.id || ''] && (
+                      <Button
+                        variant="outline"
+                        onClick={toggleShowAnswer}
+                      >
+                        {quizState.showAnswers[currentQuestion?.id || ''] ? "Hide Answer" : "Show Answer"}
+                      </Button>
+                    )}
+                  </div>
+
+                  {/* Show correct answer if toggled */}
+                  {quizState.showAnswers[currentQuestion?.id || ''] && currentQuestion && (
+                    <div className="bg-quiz-correct/10 border border-quiz-correct/20 rounded-lg p-4 text-center">
+                      <div className="text-sm text-muted-foreground mb-1">Correct Answer:</div>
+                      <div className="font-medium text-quiz-correct">
+                        {currentQuestion.correctAnswer}
+                      </div>
+                      <div className="text-xs text-muted-foreground mt-2">
+                        {currentAnswer === currentQuestion.correctAnswer ? "✅ Your answer is correct!" : "❌ Your answer is incorrect"}
+                      </div>
+                    </div>
                   )}
                 </div>
               </CardContent>
