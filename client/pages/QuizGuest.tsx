@@ -121,7 +121,7 @@ export default function QuizGuest() {
 
   const saveCurrentAnswer = useCallback(() => {
     if (!quizState) return;
-    
+
     const currentQuestion = getCurrentQuestion();
     if (!currentQuestion) return;
 
@@ -136,6 +136,46 @@ export default function QuizGuest() {
       };
     });
   }, [quizState, currentAnswer]);
+
+  const submitAnswer = () => {
+    if (!quizState || !currentAnswer) return;
+
+    const currentQuestion = getCurrentQuestion();
+    if (!currentQuestion) return;
+
+    setQuizState(prev => {
+      if (!prev) return null;
+      return {
+        ...prev,
+        answers: {
+          ...prev.answers,
+          [currentQuestion.id]: currentAnswer
+        },
+        submittedAnswers: {
+          ...prev.submittedAnswers,
+          [currentQuestion.id]: true
+        }
+      };
+    });
+  };
+
+  const toggleShowAnswer = () => {
+    if (!quizState) return;
+
+    const currentQuestion = getCurrentQuestion();
+    if (!currentQuestion) return;
+
+    setQuizState(prev => {
+      if (!prev) return null;
+      return {
+        ...prev,
+        showAnswers: {
+          ...prev.showAnswers,
+          [currentQuestion.id]: !prev.showAnswers[currentQuestion.id]
+        }
+      };
+    });
+  };
 
   const goToQuestion = (direction: 'next' | 'prev') => {
     if (!quizState) return;
