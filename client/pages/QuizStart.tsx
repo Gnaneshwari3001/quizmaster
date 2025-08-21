@@ -55,7 +55,7 @@ export default function QuizStart() {
       id: `q_${index}`,
     }));
 
-    const shuffledQuestions = shuffleArray(questions).slice(0, 50);
+    const shuffledQuestions = shuffleArray(questions).slice(0, 25);
 
     setQuizState({
       questions: shuffledQuestions,
