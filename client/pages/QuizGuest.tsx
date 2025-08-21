@@ -372,10 +372,7 @@ export default function QuizGuest() {
                 </div>
                 <CardTitle className="text-xl">{currentQuestion.question}</CardTitle>
                 <CardDescription>
-                  {currentQuestion.type === "multiple-select" && "Select all correct answers"}
-                  {currentQuestion.type === "text" && "Enter your answer in the text box below"}
-                  {currentQuestion.type === "true-false" && "Select True or False"}
-                  {currentQuestion.type === "multiple-choice" && "Select one correct answer"}
+                  Select one correct answer
                 </CardDescription>
               </CardHeader>
               
