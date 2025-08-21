@@ -262,68 +262,68 @@ export default function QuizResults() {
           </Card>
 
           {/* Answer Review */}
-          <Card className="shadow-quiz-card">
-            <CardHeader>
-              <CardTitle>Answer Review</CardTitle>
-              <CardDescription>
-                Review all questions and see the correct answers
-              </CardDescription>
-            </CardHeader>
-            
-            <CardContent>
-              <div className="space-y-6">
-                {questions.map((question, index) => {
-                  const userAnswer = answers[question.id];
-                  const isCorrect = isCorrectAnswer(question, userAnswer);
-                  
-                  return (
-                    <div key={question.id} className="border rounded-lg p-4">
-                      <div className="flex items-start justify-between mb-3">
-                        <div className="flex items-center space-x-2">
-                          <Badge variant="outline" className="text-xs">
-                            Q{index + 1}
-                          </Badge>
-                          <Badge variant="secondary" className="text-xs capitalize">
-                            {question.category}
-                          </Badge>
-                          <Badge variant="outline" className="text-xs capitalize">
-                            {question.difficulty}
-                          </Badge>
+          {showAnswers && (
+            <Card className="shadow-quiz-card">
+              <CardHeader>
+                <CardTitle>Answer Review</CardTitle>
+                <CardDescription>
+                  Review all questions and see the correct answers
+                </CardDescription>
+              </CardHeader>
+
+              <CardContent>
+                <div className="space-y-6">
+                  {questions.map((question, index) => {
+                    const userAnswer = answers[question.id];
+                    const isCorrect = isCorrectAnswer(question, userAnswer);
+
+                    return (
+                      <div key={question.id} className="border rounded-lg p-4">
+                        <div className="flex items-start justify-between mb-3">
+                          <div className="flex items-center space-x-2">
+                            <Badge variant="outline" className="text-xs">
+                              Q{index + 1}
+                            </Badge>
+                            <Badge variant="secondary" className="text-xs capitalize">
+                              {question.category}
+                            </Badge>
+                            <Badge variant="outline" className="text-xs capitalize">
+                              {question.difficulty}
+                            </Badge>
+                          </div>
+                          {isCorrect ? (
+                            <CheckCircle className="w-5 h-5 text-quiz-correct" />
+                          ) : (
+                            <XCircle className="w-5 h-5 text-quiz-incorrect" />
+                          )}
                         </div>
-                        {isCorrect ? (
-                          <CheckCircle className="w-5 h-5 text-quiz-correct" />
-                        ) : (
-                          <XCircle className="w-5 h-5 text-quiz-incorrect" />
-                        )}
-                      </div>
-                      
-                      <h3 className="font-medium mb-3">{question.question}</h3>
-                      
-                      <div className="space-y-2 text-sm">
-                        <div>
-                          <span className="text-muted-foreground">Your answer: </span>
-                          <span className={isCorrect ? "text-quiz-correct" : "text-quiz-incorrect"}>
-                            {Array.isArray(userAnswer) ? userAnswer.join(', ') : userAnswer || 'No answer'}
-                          </span>
-                        </div>
-                        
-                        {!isCorrect && (
+
+                        <h3 className="font-medium mb-3">{question.question}</h3>
+
+                        <div className="space-y-2 text-sm">
+                          <div>
+                            <span className="text-muted-foreground">Your answer: </span>
+                            <span className={isCorrect ? "text-quiz-correct" : "text-quiz-incorrect"}>
+                              {Array.isArray(userAnswer) ? userAnswer.join(', ') : userAnswer || 'No answer'}
+                            </span>
+                          </div>
+
                           <div>
                             <span className="text-muted-foreground">Correct answer: </span>
                             <span className="text-quiz-correct">
-                              {Array.isArray(question.correctAnswer) 
-                                ? question.correctAnswer.join(', ') 
+                              {Array.isArray(question.correctAnswer)
+                                ? question.correctAnswer.join(', ')
                                 : question.correctAnswer}
                             </span>
                           </div>
-                        )}
+                        </div>
                       </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </CardContent>
-          </Card>
+                    );
+                  })}
+                </div>
+              </CardContent>
+            </Card>
+          )}
         </div>
       </div>
     </div>
