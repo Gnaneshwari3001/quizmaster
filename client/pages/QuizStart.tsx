@@ -299,75 +299,38 @@ export default function QuizStart() {
               </CardHeader>
               
               <CardContent>
-                {/* Multiple Choice */}
-                {currentQuestion.type === "multiple-choice" && currentQuestion.options && (
-                  <RadioGroup 
-                    value={currentAnswer as string} 
-                    onValueChange={setCurrentAnswer}
-                    className="space-y-3"
-                  >
-                    {currentQuestion.options.map((option, index) => (
-                      <div key={index} className="flex items-center space-x-2 p-3 rounded-lg border hover:bg-accent/50 transition-colors">
-                        <RadioGroupItem value={option} id={`option-${index}`} />
-                        <Label htmlFor={`option-${index}`} className="flex-1 cursor-pointer">
-                          {option}
-                        </Label>
-                      </div>
-                    ))}
-                  </RadioGroup>
-                )}
-
-                {/* True/False */}
-                {currentQuestion.type === "true-false" && currentQuestion.options && (
-                  <RadioGroup 
-                    value={currentAnswer as string} 
-                    onValueChange={setCurrentAnswer}
-                    className="space-y-3"
-                  >
-                    {currentQuestion.options.map((option, index) => (
-                      <div key={index} className="flex items-center space-x-2 p-3 rounded-lg border hover:bg-accent/50 transition-colors">
-                        <RadioGroupItem value={option} id={`tf-${index}`} />
-                        <Label htmlFor={`tf-${index}`} className="flex-1 cursor-pointer">
-                          {option}
-                        </Label>
-                      </div>
-                    ))}
-                  </RadioGroup>
-                )}
-
-                {/* Multiple Select */}
-                {currentQuestion.type === "multiple-select" && currentQuestion.options && (
-                  <div className="space-y-3">
-                    {currentQuestion.options.map((option, index) => (
-                      <div key={index} className="flex items-center space-x-2 p-3 rounded-lg border hover:bg-accent/50 transition-colors">
-                        <Checkbox
-                          id={`multi-${index}`}
-                          checked={(currentAnswer as string[]).includes(option)}
-                          onCheckedChange={(checked) => {
-                            const currentAnswers = currentAnswer as string[];
-                            if (checked) {
-                              setCurrentAnswer([...currentAnswers, option]);
-                            } else {
-                              setCurrentAnswer(currentAnswers.filter(a => a !== option));
-                            }
-                          }}
-                        />
-                        <Label htmlFor={`multi-${index}`} className="flex-1 cursor-pointer">
-                          {option}
-                        </Label>
-                      </div>
-                    ))}
-                  </div>
-                )}
-
-                {/* Text Input */}
-                {currentQuestion.type === "text" && (
-                  <Textarea
-                    placeholder="Type your answer here..."
+                {/* Multiple Choice Questions Only */}
+                {currentQuestion.options && (
+                  <RadioGroup
                     value={currentAnswer as string}
-                    onChange={(e) => setCurrentAnswer(e.target.value)}
-                    className="min-h-[100px]"
-                  />
+                    onValueChange={setCurrentAnswer}
+                    className="space-y-3"
+                    disabled={quizState.submittedAnswers[currentQuestion.id]}
+                  >
+                    {currentQuestion.options.map((option, index) => (
+                      <div key={index} className={`flex items-center space-x-2 p-3 rounded-lg border transition-colors ${
+                        quizState.submittedAnswers[currentQuestion.id]
+                          ? 'opacity-75 cursor-not-allowed'
+                          : 'hover:bg-accent/50 cursor-pointer'
+                      }`}>
+                        <RadioGroupItem
+                          value={option}
+                          id={`option-${index}`}
+                          disabled={quizState.submittedAnswers[currentQuestion.id]}
+                        />
+                        <Label
+                          htmlFor={`option-${index}`}
+                          className={`flex-1 ${
+                            quizState.submittedAnswers[currentQuestion.id]
+                              ? 'cursor-not-allowed'
+                              : 'cursor-pointer'
+                          }`}
+                        >
+                          {option}
+                        </Label>
+                      </div>
+                    ))}
+                  </RadioGroup>
                 )}
 
                 {/* Action Buttons */}
