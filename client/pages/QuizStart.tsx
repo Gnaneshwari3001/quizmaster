@@ -63,6 +63,8 @@ export default function QuizStart() {
       questions: shuffledQuestions,
       currentQuestionIndex: 0,
       answers: {},
+      submittedAnswers: {},
+      showAnswers: {},
       timeLeft: 30 * 60, // 30 minutes in seconds
       isCompleted: false,
       startTime: Date.now(),
