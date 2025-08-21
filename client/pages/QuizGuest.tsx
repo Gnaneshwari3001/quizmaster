@@ -26,6 +26,8 @@ interface QuizState {
   questions: QuizQuestion[];
   currentQuestionIndex: number;
   answers: Record<string, string | string[]>;
+  submittedAnswers: Record<string, boolean>;
+  showAnswers: Record<string, boolean>;
   timeLeft: number;
   isCompleted: boolean;
   startTime: number;
