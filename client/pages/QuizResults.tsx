@@ -43,6 +43,7 @@ export default function QuizResults() {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [isSaved, setIsSaved] = useState(false);
+  const [showAnswers, setShowAnswers] = useState(false);
 
   const state = location.state as LocationState;
 
