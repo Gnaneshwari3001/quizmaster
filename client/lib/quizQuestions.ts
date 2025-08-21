@@ -463,3 +463,6 @@ const allQuestions = [
     difficulty: "medium"
   }
 ];
+
+// Export only multiple-choice questions
+export const quizQuestionsData = allQuestions.filter(q => q.type === "multiple-choice");
