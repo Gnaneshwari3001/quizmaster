@@ -79,7 +79,7 @@ export default function Index() {
           </h1>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
             Test your creative thinking and logical reasoning skills with our comprehensive quiz.
-            50 carefully crafted questions covering brainstorming challenges and logic puzzles.
+            25 carefully crafted questions covering brainstorming challenges and logic puzzles.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
