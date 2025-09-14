@@ -83,7 +83,7 @@ export default function Index() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            <Link to="/quiz/start">
+            <Link to="/quiz/guest">
               <Button 
                 size="lg" 
                 className="w-full sm:w-auto text-lg px-8 py-6 shadow-quiz-card hover:shadow-quiz-card-hover transition-all duration-300"
